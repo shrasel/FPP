@@ -1,0 +1,65 @@
+1. What happens when the following is compiled/run?
+        
+        class MyClass {
+           public static void main(String[] args) {
+              new MyClass();
+           }
+          MyClass() {
+             recurse("Hello");
+          }
+          String recurse(String s){
+			
+			if(s==null) return null;
+			
+			int r = RandomNumbers.getRandomInt(); 
+			int n = s.length();
+			if(r % 2 == 0)
+				return recurse(s.substring(0,n/2)); 
+			else {
+				return recurse(s.substring(n/2,n)); 
+			}
+		} 
+	}
+		
+a. Compiler error
+b. Returns a null value
+c. NullPointerException
+d. StackOverflowError
+
+Explain your answer
+
+Answer is d. StackOverFlowError
+
+Here the problem with the base condition base condition check the string is null or not. 
+It will never meet the base condition. So it will continue to call the recurse() function
+
+
+2. What happens when the following is compiled/run? You may assume that the method permute is implemented correctly elsewhere, and that it has the effect of randomly rearranging the characters of a String (for instance, on different runs of permute with input “events”, the return values could be, for example, “evtsen”, “eestnv” and “evenst”).
+        
+        class MyClass {
+           public static void main(String[] args) {
+              new MyClass();
+           }
+           MyClass() {
+              recurse("Hello");
+           }
+           
+           String recurse(String s){
+				if(s==null || s.equals("")) return "";
+				int n = s.length();
+				String t = permute(s); //rearrange characters of s return recurse(t);
+				return recurse(t);
+			} 
+		}
+
+a. Compiler error
+b. Returns a null value
+c. NullPointerException
+d. StackOverflowError
+
+Explain your answer
+
+Answer is d. StackOverflowError
+
+still the problem with the base condition. String s never going to be null. So it will
+never fulfil the base condition.
