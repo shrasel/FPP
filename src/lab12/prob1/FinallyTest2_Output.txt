@@ -1,0 +1,65 @@
+try{
+	testX();            
+	testY();
+	testZ();
+	testQ();
+} catch(Exception x){
+	System.out.println(x.getMessage());
+}
+
+
+Output: 
+
+Throwing IOException X.
+
+===============================
+
+try{
+	// testX();            
+	testY();
+	testZ();
+	testQ();
+} catch(Exception x){
+	System.out.println(x.getMessage());
+}
+
+
+Output: 
+
+In testY
+Any message can be done Y!
+Throwing Exception again.
+
+===============================
+
+try{
+	// testX();            
+	// testY();
+	testZ();
+	testQ();
+} catch(Exception x){
+	System.out.println(x.getMessage());
+}
+
+
+Output: 
+
+finally Z!
+ZZZZZZ
+
+===============================
+
+try{
+	// testX();            
+	// testY();
+	// testZ();
+	testQ();
+} catch(Exception x){
+	System.out.println(x.getMessage());
+}
+
+
+Output: 
+
+testQ
+fin Q!

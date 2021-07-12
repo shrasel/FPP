@@ -1,0 +1,139 @@
+FinallyTest.java file OUTPUT
+
+try{
+	test1();
+	test2();
+	test3();
+	test4();            
+}
+catch(Exception x){
+	System.out.println(x.getMessage());
+}
+     
+     
+a) When I first wrote without running the file in compiler, I wrote the 
+following lines as output
+
+finally 1
+In test2
+finally 2!
+In test3
+finally 3!
+In test4
+and.... so on
+
+But that was completely wrong and I found the mistakes that I did correct myself
+
+After that .. I got the following outputs and did that in pen and paper.
+I am writing the different combinations and outputs below.
+
+=====================
+ 
+try{
+	test1();
+	test2();
+	test3();
+	test4();            
+}
+catch(Exception x){
+	System.out.println(x.getMessage());
+}
+
+Output: 
+
+finally 1!
+first
+
+======================
+
+ 
+try{
+	// test1();
+	test2();
+	test3();
+	test4();            
+}
+catch(Exception x){
+	System.out.println(x.getMessage());
+}
+
+
+
+
+Output:
+
+In test2
+finally 2!
+In test3
+finally 3!
+Throwing new IOException.
+
+
+======================
+
+ 
+try{
+	// test1();
+	// test2();
+	test3();
+	test4();            
+}
+catch(Exception x){
+	System.out.println(x.getMessage());
+}
+
+
+
+
+Output:
+
+In test3
+finally 3!
+Throwing new IOException.
+
+======================
+
+ 
+try{
+	// test1();
+	// test2();
+	// test3();
+	// test4();            
+}
+catch(Exception x){
+	System.out.println(x.getMessage());
+}
+
+
+
+
+Output:
+
+In test4
+finally 4!
+Throwing IOException test 4.
+
+
+======================
+
+ 
+try{
+	// test1();
+	 test2();
+	// test3();
+	test4();            
+}
+catch(Exception x){
+	System.out.println(x.getMessage());
+}
+
+
+
+
+Output:
+
+In test2
+finally 2!
+In test4
+finally 4!
+Throwing IOException test 4.
