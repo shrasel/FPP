@@ -12,9 +12,33 @@ public class Employee {
 		this.salaryRecord = new HashMap<String, Double>();
 	}
 
+	public Employee(String fName, String lName) {
+
+		this.firstName = fName;
+		this.lastName = lName;
+		this.salaryRecord = new HashMap<String, Double>();
+
+	}
+
 	public void addEntry(String date, double salary) {
 		// implement
 		salaryRecord.put(date, salary);
+	}
+
+	public String getFirstName() {
+		return firstName;
+	}
+
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+
+	public String getLastName() {
+		return lastName;
+	}
+
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
 	}
 
 	public void printPaymentAmount(String date) {
@@ -41,32 +65,19 @@ public class Employee {
 			sum += salary;
 		}
 		double averagePaycheck = sum / size;
-		System.out.println("Average paycheck for " + getFirstName() + " " + getLastName() + " was " + averagePaycheck);
-	}
-
-	public String getFirstName() {
-		return firstName;
-	}
-
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
-	}
-
-	public String getLastName() {
-		return lastName;
-	}
-
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
+		System.out.println("Average paycheck for " + getFirstName() + " " + getLastName() + " was $" + averagePaycheck);
 	}
 
 	public static void main(String[] args) {
-		Employee e = new Employee();
-		e.setFirstName("Safwan");
-		e.setLastName("Ruwayfi");
+		Employee e = new Employee("Safwan", "Ruwayfi");
+		System.out.println("Employee " + e.getFirstName()+" "+e.getLastName()); 
 		for (int i = 1; i <= 12; ++i) {
-			e.addEntry(i + "/15/2011", 3070 + 5 * i);
+			e.addEntry(i + "/15/2011", 3070 + 5 * i * Math.random());
+			System.out.println(" paid on " +  i + "/15/2011, Paid: $"+ (3070 + 5 * i));
 		}
+		
+		System.out.println();
+		
 		e.printPaymentAmount("3/15/2021");
 		e.printPaymentAmount("5/15/2020");
 		e.printAveragePaycheck();
